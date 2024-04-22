@@ -8,8 +8,8 @@ https://www.droking.com/cs/support/topic/200220-dc-dc-buck-converter-uart/#post-
 ## Library commands
 |Library function| Prototol command |  Use |
 | ------------- | ------------- | ------------- |
-| setVoltageMilliVolts(uint16_t millivolts) | awu (milivolts) | Sets output Volage in mV |
-| setCurrentMilliAmps(uint16_t milliamps) | awi (miliamps) | Sets output Current in mA |
+| setVoltageMilliVolts(uint16_t millivolts) | :wu (milivolts) | Sets output Volage in mV |
+| setCurrentMilliAmps(uint16_t milliamps) | :wi (milliamps) | Sets output Current in mA |
 | enableOutput(bool status) | :wo1 / :wo0 | Enables/Disables the Output |
 | enableAuto(bool status) | :wy1 / :wy0 | Enables/Disables if output enabled at power up |
 | enableLock(bool status) | :wl1 / :wl0| Enables/Disables lock on power supply buttons - local control |
