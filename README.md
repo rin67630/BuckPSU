@@ -1,4 +1,4 @@
-# BuckPSU
+# BuckPSU Modified
 Attempt to modify Arduino library for inexpensive (~$30) remotely controllable and monitored DC-DC converters.
 ** that have no UART port on the motherboard ** 
 
