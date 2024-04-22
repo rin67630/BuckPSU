@@ -1,8 +1,8 @@
 /**
  * BuckPSU.cpp
  * 
- * Library for interfacing with UART on Chinese DC-DC converters.
- * Ben James (benjames.io)
+ * Modified Library for interfacing with UART on Juntek DC-DC converters.
+ * Original from Ben James (benjames.io)
  *
  * The port used can be any of type `Stream`. 
  * This has the side effect of needing to manually begin the Serial
@@ -14,6 +14,9 @@
  
  Ben's realted blog post:
  https://blog.benjames.io/2018/06/29/secret-uart-on-chinese-dcdc-converters/
+ taking remarks from user "rain" int oaccount.
+ Commands beginning with "a" replaced by beginnig with ":"
+
  
  */
 
