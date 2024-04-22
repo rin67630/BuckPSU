@@ -40,11 +40,11 @@ BuckPSU::BuckPSU(Stream &port)
 void BuckPSU::enableOutput(bool status)
 {
     if(status){
-        _port->println("awo1");
+        _port->println(":wo1");
     }
     else
     {
-        _port->println("awo0");
+        _port->println(":wo0");
     }
 }
 /**
@@ -56,11 +56,11 @@ void BuckPSU::enableOutput(bool status)
 void BuckPSU::enableAuto(bool status)
 {
     if(status){
-        _port->println("awy1");
+        _port->println(":wy1");
     }
     else
     {
-        _port->println("awy0");
+        _port->println(":wy0");
     }
 }
 
@@ -71,11 +71,11 @@ void BuckPSU::enableAuto(bool status)
 void BuckPSU::enableLock(bool status)
 {
     if(status){
-        _port->println("awl1");
+        _port->println(":wl1");
     }
     else
     {
-        _port->println("awl0");
+        _port->println(":wl0");
     }
 }
 /**
@@ -85,11 +85,11 @@ void BuckPSU::enableLock(bool status)
 void BuckPSU::enableDisplay(bool status)
 {
     if(status){
-        _port->println("awd1");
+        _port->println(":wd1");
     }
     else
     {
-        _port->println("awd0");
+        _port->println(":wd0");
     }
 }
 /**
@@ -99,7 +99,7 @@ void BuckPSU::enableDisplay(bool status)
 void BuckPSU::setMemory(int loc)
 {
 	char msg[8];
-	sprintf(msg, "aws%d", loc);
+	sprintf(msg, ":ws%d", loc);
     _port->println(msg);
 }
 /**
@@ -109,7 +109,7 @@ void BuckPSU::setMemory(int loc)
 void BuckPSU::getMemory(int loc)
 {
 	char msg[8];
-	sprintf(msg, "awm%d", loc);
+	sprintf(msg, ":wm%d", loc);
     _port->println(msg);
 }
 
@@ -122,7 +122,7 @@ bool BuckPSU::getOutputEnabled()
     char msg[16];
 
     // Request output status
-    _port->println("aro");
+    _port->println(":ro");
     _port->readBytes(msg, 16);
 
     return (msg[13] == '1') ? true : false;
@@ -136,7 +136,7 @@ bool BuckPSU::getAutoEnabled()
     char msg[16];
 
     // Request output status
-    _port->println("ary");
+    _port->println(":ry");
     _port->readBytes(msg, 16);
 
     return (msg[13] == '1') ? true : false;
@@ -152,7 +152,7 @@ bool BuckPSU::getLockEnabled()
     char msg[16];
 
     // Request output lock status
-    _port->println("arl");
+    _port->println(":rl");
     _port->readBytes(msg, 16);
 
     return (msg[13] == '1') ? true : false;
@@ -169,7 +169,7 @@ uint16_t BuckPSU::readVoltageMilliVolts()
     char footer[2];
 
     // Request voltage reading 
-    _port->println("aru");
+    _port->println(":ru");
 
     _port->readBytes(header, 10);
     _port->readBytes(msg, 4);
@@ -191,7 +191,7 @@ uint16_t BuckPSU::readTimer()
     char footer[2];
 
     // Request timer reading 
-    _port->println("art");
+    _port->println(":rt");
 
     _port->readBytes(header, 8);
     _port->readBytes(msg, 6);
@@ -235,7 +235,7 @@ uint16_t BuckPSU::readCurrentMilliAmps()
     char footer[2];
 
     // Request voltage reading 
-    _port->println("ari");
+    _port->println(":ri");
 
     _port->readBytes(header, 10);
     _port->readBytes(msg, 4);
@@ -257,7 +257,7 @@ uint16_t BuckPSU::readSetMilliAmps()
     char footer[2];
 
     // Request voltage reading 
-    _port->println("ara");
+    _port->println(":ra");
 
     _port->readBytes(header, 10);
     _port->readBytes(msg, 4);
@@ -279,7 +279,7 @@ uint16_t BuckPSU::readSetMilliVolts()
     char footer[2];
 
     // Request voltage reading 
-    _port->println("arv");
+    _port->println(":rv");
 
     _port->readBytes(header, 10);
     _port->readBytes(msg, 4);
@@ -320,7 +320,7 @@ void BuckPSU::setVoltageMilliVolts(uint16_t millivolts)
     voltage[4] = '\0';
 
     // Send command to PSU
-    _port->print("awu");
+    _port->print(":wu");
     _port->println(voltage);
 }
 
@@ -336,6 +336,6 @@ void BuckPSU::setCurrentMilliAmps(uint16_t milliamps)
     current[4] = '\0';
 
     // Send command to PSU
-    _port->print("awi");
+    _port->print(":wi");
     _port->println(current);
 }
